@@ -1,0 +1,29 @@
+<div id="filterConteiner">
+  <div id="filter">
+    <form [formGroup]="form">
+      <label for="nome">Nome: </label>
+      <input id="nome" type="text" formControlName="inNome"/>
+      <br/>
+      <br/>
+      <label for="corPredominante">Cor Predominante: </label>
+      <input id="corPredominante" type="text" formControlName="inCorPredominante"/>
+      <br/>
+      <br/>
+      <label for="fabricante">Fabricante: </label>
+      <select id="fabricante" formControlName="inFabricante">
+        <option value="-1">Selecione um Fabricante</option>
+        <option disabled>-----------------------</option>
+        <option *ngFor="let fabricante of fabricantes" [ngValue]="fabricante.id">{{fabricante.nome}}</option>
+      </select>
+      <br/>
+      <br/>
+      <label for="descricao">Descrição: </label>
+      <br/>
+      <textarea cols="50" rows="5" id="descricao" formControlName="inDescricao"></textarea>
+      <br>
+      <br>
+      <input type="button" value="Salvar" (click)="salvar($event)"/>
+      <input type="button" value="Cancelar" (click)="cancelar($event)" />
+    </form>
+  </div>
+</div>

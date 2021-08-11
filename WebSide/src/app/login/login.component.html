@@ -1,0 +1,20 @@
+<div class="d-flex w-100 h-75 justify-content-center align-items-center">
+  <div id="login">
+    <form [formGroup]="form">
+      <table>
+        <tr>
+          <td><label for="usuario">Usuário: </label></td>
+          <td><input id="usuario" type="text" formControlName="inUsuario"></td>
+        </tr>
+        <tr>
+          <td><label for="senha">Senha: </label></td>
+          <td><input id="senha" type="password" formControlName="inSenha"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="button" value="Entrar" (click)="doLogin()"></td>
+        </tr>
+      </table>
+    </form>
+    <span id="mensagem">{{mensagem}}</span>
+  </div>
+</div>

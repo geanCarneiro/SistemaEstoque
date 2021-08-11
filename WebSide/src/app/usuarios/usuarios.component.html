@@ -1,0 +1,24 @@
+<div id="table">
+  <div id="actions">
+    <button routerLink="/usuarios/edit"><i class="bi bi-plus-lg"></i></button>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+    <tr class="d-flex">
+      <th class="col" scope="col">Usuário</th>
+      <th class="col-3" scope="col">Nome</th>
+      <th class="col-3" scope="col">Função</th>
+      <th class="col-1" scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let usuario of usuarios" class="d-flex">
+      <td class="col">{{usuario.nome}}</td>
+      <td class="col-3">{{usuario.usuario}}</td>
+      <td class="col-3">{{usuario.funcao}}</td>
+      <td class="col-1"><span class="remover click" (click)="remover(usuario)"><i class="bi bi-trash-fill"></i></span>
+        <span class="edit" routerLink="/usuarios/edit/{{usuario.id}}"><i class="bi bi-pencil-fill"></i></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

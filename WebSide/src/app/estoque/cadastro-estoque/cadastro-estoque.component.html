@@ -1,0 +1,31 @@
+<div id="head">
+  <h1>{{operacao | titlecase}} de Estoque</h1>
+</div>
+<div id="filterConteiner">
+  <div id="filter">
+    <form [formGroup]="form">
+      <label>Produto: {{inProduto}}</label>
+      <br>
+      <br>
+      <label>Fabricante: {{inFabricante}}</label>
+      <br>
+      <br>
+      <label>Disponivel atualmente: {{inDisponivel}}</label>
+      <br>
+      <br>
+      <label for="quantidade">quantidade a {{ operacao == 'entrada' ? 'entrar' : 'sair'}}: </label>
+      <input id="quantidade"  type="number"  min="0" formControlName="inQuantidade">
+      <button class="mx-1" value="+100" (click)="subtrai100()">-100</button>
+      <button class="mx-1" value="+100" (click)="subtrai10()">-10</button>
+      <button class="mx-1" value="+100" (click)="subtrai1()">-1</button>
+      <button class="mx-1" value="+100" (click)="set0()">0</button>
+      <button class="mx-1" value="+100" (click)="soma1()">+1</button>
+      <button class="mx-1" value="+100" (click)="soma10()">+10</button>
+      <button class="mx-1" value="+100" (click)="soma100()">+100</button>
+      <br>
+      <br>
+      <input type="button" value="Salvar" (click)="salvar($event)"/>
+      <input type="button" value="Cancelar" (click)="cancelar($event)" />
+    </form>
+  </div>
+</div>

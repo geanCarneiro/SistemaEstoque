@@ -1,0 +1,38 @@
+<div id="filterConteiner">
+  <div id="filter">
+    <form [formGroup]="form">
+      <label for="produto">Produto: </label>
+      <input type="text" id="produto" formControlName="inProduto"/>
+      <br/>
+      <br/>
+      <input type="button" value="Filtrar" (click)="filtrar()"/>
+    </form>
+  </div>
+</div>
+
+<div id="table">
+  <input type="checkbox" id="orderByDiferenca" [checked]="orderByDiferenca" (change)="orderByDiferenca = !orderByDiferenca; reload()"> <label class="mx-2" for="orderByDiferenca">Ordenar por Diferença entre estoque ideal e quantidade</label>
+  <table class="table table-bordered">
+    <thead>
+    <tr class="d-flex">
+      <th class="col" scope="col">Produto</th>
+      <th class="col" scope="col">Fabricante</th>
+      <th class="col-1" scope="col">Quantidade</th>
+      <th class="col-1" scope="col">Estoque Ideal</th>
+      <th class="col-1" scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of estoque" class="d-flex" [ngClass]="item.quantidade < item.estoqueIdeal ? 'estoqueBaixo' : ''">
+      <td class="col">{{item.produto.nome}} {{item.produto.corPredominante}}</td>
+      <td class="col">{{item.produto.fabricante.nome}}</td>
+      <td class="col-1">{{item.quantidade}}</td>
+      <td class="col-1">{{item.estoqueIdeal}}</td>
+      <td class="col-1">
+        <span class="adicionar" routerLink="entrada/{{item.produto.id}}"><i class="bi bi-plus-circle-fill"></i></span>
+        <span class="remover" routerLink="saida/{{item.produto.id}}"><i class="bi bi-dash-circle-fill"></i></span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

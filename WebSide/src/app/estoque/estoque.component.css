@@ -1,0 +1,60 @@
+div#filter {
+  width: 90%;
+  border: black solid 0.1rem;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+div#filterConteiner {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+#table {
+  width: 100%;
+}
+
+#table table {
+  height: 100%;
+}
+
+#table span {
+  margin-left: 1rem;
+}
+
+#filter label{
+  margin-right: 0.5rem;
+}
+
+#produto {
+  width: 25rem;
+}
+
+#actions {
+  background: lightgray;
+  width: 100%;
+}
+
+#actions button {
+  align-items: center;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  line-height: 0.5rem;
+}
+
+.remover {
+  color: red;
+  font-size: large;
+}
+
+.adicionar {
+  color: green;
+  font-size: large;
+}
+
+.estoqueBaixo {
+  background-color: #ff9696;
+}

@@ -1,0 +1,29 @@
+div#filter {
+  width: 90%;
+  border: black solid 0.1rem;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+div#filterConteiner {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+#filter label{
+  margin-right: 0.5rem;
+}
+
+#nome {
+  width: 25rem;
+}
+
+input[type="button"] {
+  margin-right: 1rem;
+}
+
+input[type="number"] {
+  width: 5rem;
+}

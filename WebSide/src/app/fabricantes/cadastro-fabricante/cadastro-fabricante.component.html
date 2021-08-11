@@ -1,0 +1,12 @@
+<div id="filterConteiner">
+  <div id="filter">
+    <form [formGroup]="form">
+      <label for="nome">Nome: </label>
+      <input id="nome" type="text" formControlName="inNome"/>
+      <br/>
+      <br/>
+      <input type="button" value="Salvar" (click)="salvar($event)"/>
+      <input type="button" value="Cancelar" (click)="cancelar($event)" />
+    </form>
+  </div>
+</div>

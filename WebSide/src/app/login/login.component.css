@@ -1,0 +1,24 @@
+div#login {
+  border: black solid 0.2rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  height: fit-content;
+}
+
+div#login table{
+    border-spacing: 1rem;
+  border-collapse: separate;
+ }
+
+div#login table tr td[colspan='2']{
+    text-align: center;
+  }
+
+::ng-deep div#conteudo {
+  padding: 0 !important;
+}
+
+span#mensagem {
+  color: red;
+}
+

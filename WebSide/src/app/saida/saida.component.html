@@ -1,0 +1,22 @@
+<div id="table">
+  <table class="table table-bordered">
+    <thead>
+    <tr class="d-flex">
+      <th class="col-1" scope="col">Dia</th>
+      <th class="col" scope="col">Produto ( Fabricante )</th>
+      <th class="col-2" scope="col">quantidade</th>
+      <th class="col-1" scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let saida of saidas" class="d-flex">
+      <td class="col-1">{{saida.data | date : 'dd/MM/yyyy'}}</td>
+      <td class="col">{{saida.produto.nome}} {{saida.produto.corPredominante}} ( {{saida.produto.fabricante.nome}} )</td>
+      <td class="col-2">{{saida.quantidade}}</td>
+      <td class="col-1">
+        <span class="remover" (click)="cancelarSaida(saida)"><i class="bi bi-x-circle-fill"></i></span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

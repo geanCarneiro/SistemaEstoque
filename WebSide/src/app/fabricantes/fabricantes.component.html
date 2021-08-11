@@ -1,0 +1,32 @@
+<div id="filterConteiner">
+  <div id="filter">
+    <form [formGroup]="form">
+      <label for="nome">Nome: </label>
+      <input id="nome" type="text" formControlName="inNome"/>
+      <br/>
+      <br/>
+      <input type="button" value="Filtrar" (click)="filtrar()"/>
+    </form>
+  </div>
+</div>
+
+<div id="table">
+  <div id="actions">
+    <button routerLink="/fabricantes/edit"><i class="bi bi-plus-lg"></i></button>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+    <tr class="d-flex">
+      <th class="col" scope="col">Nome</th>
+      <th class="col-1" scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fabricante of fabricantes" class="d-flex">
+      <td class="col">{{fabricante.nome}}</td>
+      <td class="col-1"><span class="remover click" (click)="remover(fabricante)"><i class="bi bi-trash-fill"></i></span>
+        <span class="edit" routerLink="/fabricantes/edit/{{fabricante.id}}"><i class="bi bi-pencil-fill"></i></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

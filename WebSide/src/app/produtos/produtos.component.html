@@ -1,0 +1,47 @@
+<div id="filterConteiner">
+  <div id="filter">
+    <form [formGroup]="form">
+      <label for="nome">Nome: </label>
+      <input id="nome" type="text" formControlName="inNome"/>
+      <br/>
+      <br/>
+      <label for="corPredominante">Cor Predominante: </label>
+      <input id="corPredominante" type="text" formControlName="inCorPredominante"/>
+      <br/>
+      <br/>
+      <label for="fabricante">Fabricante: </label>
+      <select id="fabricante" formControlName="inFabricante">
+        <option value="-1">Todos</option>
+        <option *ngFor="let fabricante of fabricantes; index as i" value="{{i}}">{{fabricante.nome}}</option>
+      </select>
+      <br>
+      <br>
+      <input type="button" value="Filtrar" (click)="filtrar()"/>
+    </form>
+  </div>
+</div>
+
+<div id="table">
+  <div id="actions">
+    <button routerLink="/produtos/edit"><i class="bi bi-plus-lg"></i></button>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+    <tr class="d-flex">
+      <th class="col" scope="col">Nome</th>
+      <th class="col-3" scope="col">Cor Predominante</th>
+      <th class="col-3" scope="col">Fabricante</th>
+      <th class="col-1" scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let produto of produtos" class="d-flex">
+      <td class="col">{{produto.nome}}</td>
+      <td class="col-3">{{produto.corPredominante}}</td>
+      <td class="col-3">{{produto.fabricante.nome}}</td>
+      <td class="col-1"><span class="remover click" (click)="remover(produto)"><i class="bi bi-trash-fill"></i></span>
+          <span class="edit" routerLink="/produtos/edit/{{produto.id}}"><i class="bi bi-pencil-fill"></i></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
