@@ -56,9 +56,10 @@ public class FabricanteDAO extends DAO<Fabricante> {
             Root<Fabricante> r = cq.from(Fabricante.class);
             cq.select(r);
             cq.where(cb.and(
-                    cb.equal(r.<Boolean>get("ativo"), true),
+                    cb.isTrue(r.get("ativo")),
                     cb.like(cb.upper(r.<String>get("nome")), "%" + filter.getNome().toUpperCase() + "%")
             ));
+            cq.orderBy(cb.asc(r.get("nome")));
 
             out = this.entityManager.createQuery(cq).getResultList();
 

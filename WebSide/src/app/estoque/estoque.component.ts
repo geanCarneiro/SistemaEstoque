@@ -59,7 +59,7 @@ export class EstoqueComponent implements OnInit {
       this.estoque = value
 
       let escolha = false;
-      if(fistLoad && this.estoque.filter(item => (item.estoqueIdeal - item.quantidade) < 0 ).length > 0) {
+      if(fistLoad && this.estoque.filter(item => (item.estoqueIdeal - item.quantidade) < 0 ).length < 0) {
         escolha = confirm("Existem produtos com o estoque abaixo do ideal. [OK] para ordenar esses produtos primeiro ou [CANCELAR] para exibir na ordem normal");
         this.orderByDiferenca = escolha;
       }

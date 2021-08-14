@@ -63,13 +63,23 @@ public class ItemEstoqueDAO extends DAO<ItemEstoque>{
             ArrayList<Predicate> predicates = new ArrayList<>();
 
             predicates.add(builder.equal(root.get("ativo"), true));
-            if (filter.getProduto() != null)
-                predicates.add(
-                        builder.like(
-                                builder.upper(root.get("produto").get("nomeCorPredominante")),
-                                "%" + filter.getProduto().getNome().toUpperCase() + "%"
-                        )
-                );
+            if (filter.getProduto() != null) {
+                if(filter.getProduto().getId() == -1) {
+                    predicates.add(
+                            builder.like(
+                                    builder.upper(root.get("produto").get("nomeCorPredominante")),
+                                    "%" + filter.getProduto().getNome().toUpperCase() + "%"
+                            )
+                    );
+                } else {
+                    predicates.add(
+                            builder.equal(
+                                    root.get("produto").get("id"),
+                                    filter.getProduto().getId()
+                            )
+                    );
+                }
+            }
 
             query.where(predicates.toArray(new Predicate[0]));
 

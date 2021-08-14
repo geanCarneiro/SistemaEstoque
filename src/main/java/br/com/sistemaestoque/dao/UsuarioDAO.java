@@ -56,7 +56,8 @@ public class UsuarioDAO extends DAO<Usuario> {
                 predicates.add(builder.equal(builder.upper(usuarioRoot.get("funcao")), filter.getFuncao()));
 
             query.select(usuarioRoot)
-                    .where(predicates.toArray(new Predicate[0]));
+                    .where(predicates.toArray(new Predicate[0]))
+                    .orderBy(builder.asc(usuarioRoot.get("nome")));
 
             return this.entityManager.createQuery(query).getResultList();
 

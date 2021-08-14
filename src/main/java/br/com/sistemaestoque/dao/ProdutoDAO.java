@@ -53,7 +53,7 @@ public class ProdutoDAO extends DAO<Produto> {
 
             cq.select(r);
             ArrayList<Predicate> predicates = new ArrayList<>();
-            predicates.add(cb.equal(r.<Boolean>get("ativo"), true));
+            predicates.add(cb.isTrue(r.get("ativo")));
             predicates.add(cb.or(
                         cb.like(cb.upper(r.get("nome")), "%" + filter.getNome().toUpperCase() + "%"),
                         cb.like(cb.upper(r.get("nomeCorPredominante")), "%" + filter.getNome().toUpperCase() + "%")
@@ -64,6 +64,7 @@ public class ProdutoDAO extends DAO<Produto> {
                 predicates.add(cb.equal(r.get("fabricante"), filter.getFabricante()));
 
             cq.where(cb.and(predicates.toArray(new Predicate[0])));
+            cq.orderBy(cb.asc(r.get("nome")));
 
             out = this.entityManager.createQuery(cq).getResultList();
 
